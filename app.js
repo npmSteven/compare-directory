@@ -35,10 +35,10 @@ async function init() {
     const notFoundFiles = [];
     for (let i = 0; i < 1; i++) {
       const compareFile = compareFiles[i];
-      const sourceFile = sourceFiles.find(sf => sf === compareFile);
-      console.log(compareFile, sourceFiles, sourceFile);
-      if (!sourceFile) {
-        notFoundFiles.push(sourceFile);
+      const hasSource = sourceFiles.includes(compareFile);
+      console.log(compareFile, hasSource);
+      if (!hasSource) {
+        notFoundFiles.push(compareFile);
         continue;
       }
       const [
