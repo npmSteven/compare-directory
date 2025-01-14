@@ -36,7 +36,7 @@ async function init() {
     for (let i = 0; i < 1; i++) {
       const compareFile = compareFiles[i];
       const sourceFile = sourceFiles.find(sf => sf === compareFile);
-      console.log(compareFile, sourceFile);
+      console.log(compareFile, sourceFiles, sourceFile);
       if (!sourceFile) {
         notFoundFiles.push(sourceFile);
         continue;
