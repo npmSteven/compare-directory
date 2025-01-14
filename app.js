@@ -36,6 +36,7 @@ async function init() {
     for (let i = 0; i < compareFiles.length; i++) {
       const compareFile = compareFiles[i];
       const hasSource = sourceFiles.includes(compareFile);
+      console.log(compareFile, hasSource)
       if (!hasSource) {
         notFoundFiles.push(compareFile);
         continue;
