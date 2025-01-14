@@ -33,7 +33,7 @@ async function init() {
     console.log(`Checking if there are files in the source`);
     console.log(`source files ${sourceFiles.length} compare files ${compareFiles.length}`)
     const notFoundFiles = [];
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < compareFiles.length; i++) {
       const compareFile = compareFiles[i];
       const hasSource = sourceFiles.includes(compareFile);
       if (!hasSource) {
