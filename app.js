@@ -36,7 +36,6 @@ async function init() {
     for (let i = 0; i < 1; i++) {
       const compareFile = compareFiles[i];
       const hasSource = sourceFiles.includes(compareFile);
-      console.log(compareFile, hasSource);
       if (!hasSource) {
         notFoundFiles.push(compareFile);
         continue;
@@ -45,8 +44,8 @@ async function init() {
         sourceFileChildren,
         compareFileChildren
       ] = await Promise.all([
-        fs.readdir(`${sourcePath}/${sourceFile}`),
-        fs.readdir(`${comparePath}/${sourceFile}`)
+        fs.readdir(`${sourcePath}/${compareFile}`),
+        fs.readdir(`${comparePath}/${compareFile}`)
       ]);
       const hasEveryFile = compareFileChildren.reduce((acc, item) => {
         const sourceFileChild = sourceFileChildren.find(sf => sf === item);
@@ -57,7 +56,7 @@ async function init() {
         return acc;
       }, true);
       if (!hasEveryFile) {
-        notFoundFiles.push(sourceFile);
+        notFoundFiles.push(compareFile);
       }
     }
     console.log(notFoundFiles);
