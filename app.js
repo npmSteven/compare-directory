@@ -31,6 +31,7 @@ async function init() {
       fs.readdir(comparePath)
     ]);
     console.log(`Checking if there are files in the source`);
+    console.log(`source files ${sourceFiles.length} compare files ${compareFiles.length}`)
     const notFoundFiles = compareFiles.find(cf => !sourceFiles.includes(cf));
     console.log(notFoundFiles);
 
