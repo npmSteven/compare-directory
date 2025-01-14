@@ -47,15 +47,7 @@ async function init() {
         fs.readdir(`${sourcePath}/${compareFile}`),
         fs.readdir(`${comparePath}/${compareFile}`)
       ]);
-      const hasEveryFile = compareFileChildren.reduce((acc, item) => {
-        const sourceFileChild = sourceFileChildren.find(sf => sf === item);
-        if (!sourceFileChild) {
-          acc = false;
-          return acc;
-        }
-        return acc;
-      }, true);
-      if (!hasEveryFile) {
+      if (sourceFileChildren.length !== compareFileChildren.length) {
         notFoundFiles.push(compareFile);
       }
     }
